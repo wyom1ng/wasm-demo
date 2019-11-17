@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <title>WASM Demo</title>
+
+    <link rel="stylesheet" href="../xterm/xterm.css" />
+    <script src="../xterm/xterm.js"></script>
+
+    <script src="fibonacci.js"></script>
+</head>
+<body>
+
+<h1 style="text-align: center">Fibonacci</h1>
+
+<div style="width: 49%; display: inline-block">
+    <h3 style="text-align: center">JS</h3>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> fibJS(n) {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">1</span>)
+        <span style="color: #008800; font-weight: bold">return</span> n;
+    <span style="color: #008800; font-weight: bold">return</span> fibJS(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibJS(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span>);
+}
+</pre></td></tr></table></div>
+</div>
+<div style="width: 49%; float: right">
+    <h3 style="text-align: center">CPP</h3>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">fibWASM</span>(<span style="color: #333399; font-weight: bold">int</span> n) {
+   <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">1</span>)
+      <span style="color: #008800; font-weight: bold">return</span> n;
+   <span style="color: #008800; font-weight: bold">return</span> fibWASM(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibWASM(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span>);
+}
+</pre></td></tr></table></div>
+</div>
+
+<hr>
+
+<div id="terminal"></div>
+
+</body>
+</html>
