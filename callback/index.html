@@ -14,34 +14,51 @@
 
 <div style="width: 49%; display: inline-block">
     <h3 style="text-align: center">JS</h3>
-    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-2
-3
-4
-5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> fibJS(n) {
-    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">1</span>)
-        <span style="color: #008800; font-weight: bold">return</span> n;
-    <span style="color: #008800; font-weight: bold">return</span> fibJS(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibJS(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span>);
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> randomIntFromInterval(min, max) {
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">Math</span>.floor(<span style="color: #007020">Math</span>.random() <span style="color: #333333">*</span> (max <span style="color: #333333">-</span> min <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> min);
 }
+
+<span style="color: #008800; font-weight: bold">function</span> callbackFunc() {
+    <span style="color: #007020">document</span>.body.style.backgroundColor <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;#&#39;</span> <span style="color: #333333">+</span> randomIntFromInterval(<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #005588; font-weight: bold">0xFFFFFF</span>).toString(<span style="color: #0000DD; font-weight: bold">16</span>);
+}
+
+WebAssembly.instantiate(bytes, {
+    env<span style="color: #333333">:</span> {
+        callbackFunc<span style="color: #333333">:</span> callbackFunc,
+    }
+});
 </pre></td></tr></table></div>
+
+
 </div>
 <div style="width: 49%; float: right">
-    <h3 style="text-align: center">WASM</h3>
-    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+    <h3 style="text-align: center">C</h3>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
 2
 3
 4
-5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">fibWASM</span>(<span style="color: #333399; font-weight: bold">int</span> n) {
-   <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">1</span>)
-      <span style="color: #008800; font-weight: bold">return</span> n;
-   <span style="color: #008800; font-weight: bold">return</span> fibWASM(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">+</span> fibWASM(n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">2</span>);
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">extern</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">callbackFunc</span>();
+
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">callbackTest</span>() {
+  callbackFunc();
 }
 </pre></td></tr></table></div>
+
 </div>
 
 <hr>
-
-<div id="terminal"></div>
 
 </body>
 </html>
